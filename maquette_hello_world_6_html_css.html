@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelloWorld6</title>
+
+  <!-- Police Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset simple */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: white;
+      padding: 80px 10%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hello {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hello span {
+      display: block;
+      font-weight: 300;
+    }
+
+    .illustration {
+      background: #2563eb;
+      border-radius: 20px;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 10%;
+      background: white;
+    }
+
+    section.alt {
+      background: #f4f6f8;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p.center {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      text-align: center;
+      color: #4b5563;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    /* Boutons */
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 28px;
+      background: #2563eb;
+      color: white;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37,99,235,0.4);
+    }
+
+    /* Footer */
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      padding: 40px 10%;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      header {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="hello">
+      Bonjour !
+      <span>Hello · Hallo · ¡Hola · Ciao</span>
+    </div>
+    <p>Bienvenue sur <strong>HelloWorld6</strong>, la solution numérique dédiée à l'innovation web moderne.</p>
+    <a href="#services" class="btn">Découvrir nos services</a>
+  </div>
+  <div class="illustration">Illustration / visuel</div>
+</header>
+
+<section>
+  <h2>Notre mission</h2>
+  <p class="center">Créer des expériences web claires, modernes et accessibles, pensées pour durer et évoluer avec vos projets.</p>
+</section>
+
+<section id="services" class="alt">
+  <h2>Nos domaines d'expertise</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Développement Web</h3>
+      <p>Sites performants, responsives et maintenables.</p>
+    </div>
+    <div class="card">
+      <h3>Design UI/UX</h3>
+      <p>Interfaces modernes centrées sur l'utilisateur.</p>
+    </div>
+    <div class="card">
+      <h3>Projets techniques</h3>
+      <p>Démonstrations, prototypes et concepts numériques.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Pourquoi HelloWorld6 ?</h2>
+  <div class="cards">
+    <div class="card">Solutions sur mesure</div>
+    <div class="card">Technologies modernes</div>
+    <div class="card">Approche pédagogique</div>
+    <div class="card">Accompagnement continu</div>
+  </div>
+</section>
+
+<footer>
+  © 2025 HelloWorld6 — Projet fictif
+</footer>
+
+</body>
+</html>
