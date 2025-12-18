@@ -7,12 +7,9 @@
     font-family : 'Poppins', sans-serif;
 
 }
-h1
-{
-    margin-bottom: 40px;
-}
 h2
 {
+    font-size: 28px;
     margin-bottom: 40px;
 }
 div,ul,h1,h2
@@ -24,17 +21,23 @@ div,ul,h1,h2
 
 p,ul
 {
-    font-size: 18px;
+    font-size: 22px;
     text-align: justify;
     margin-left: 40px;
     margin-right: 40px;
+    list-style-image: ;
+}
+ul li
+{
+    margin-left: 40px;
+    line-height: 1.6;
 }
 .div_bouton
 {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    margin-bottom: 0px;
 }
 .bouton
 {
@@ -44,10 +47,9 @@ p,ul
     background-color: #228ee7;
     color: #ffffff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 22px;
     border-radius: 8px;
-    margin-left: 40px;
-    margin-bottom: 40px;
+    margin-top: 40px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     
 }
@@ -115,7 +117,6 @@ p,ul
 
     background: linear-gradient(135deg, #111827, #1f2937);
     overflow: hidden;
-    margin-bottom: 30px;
 }
 #banniere_accueil .bonjour 
 {
@@ -133,11 +134,27 @@ p,ul
 
     display: block;
     position: absolute;
-    transform: translateY(-68.5%);
+    transform: translateY(-372px);
     right: 0px;
 }
 /* Texte Accueil */
 #texte_accueil
 {
     margin-right: 550px;
+}
+/* Sections de séparation */
+.separation_1, .separation_2
+{
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.separation_1
+{
+    background-color: #f3f2f6;
+    list-style-image: url("pastille 02.png");
+}
+.separation_2
+{
+    background-color: #ffffff;
+    list-style-image: url("pastille 01.png");
 }
