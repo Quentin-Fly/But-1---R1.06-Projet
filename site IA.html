@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloWorld6 - Solutions Numériques</title>
+    
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icônes (FontAwesome pour la facilité) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --primary: #2563eb;       /* Bleu moderne */
+            --primary-dark: #1d4ed8;
+            --secondary: #1e293b;     /* Gris sombre bleuté */
+            --dark-bg: #0f172a;       /* Fond header */
+            --light-bg: #f8fafc;      /* Fond sections alternées */
+            --white: #ffffff;
+            --text-main: #334155;
+            --text-light: #94a3b8;
+            --accent: #3b82f6;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background-color: var(--dark-bg);
+            padding: 0 5%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo i { color: var(--primary); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--white);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Menu Burger (Mobile) */
+        .burger { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        /* --- HEADER / HERO SECTION --- */
+        header {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 80px 5% 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        /* Animation des mots */
+        .word-carousel {
+            height: 60px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .word-carousel span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            animation: slideWords 18s infinite;
+        }
+
+        @keyframes slideWords {
+            0%, 11% { transform: translateY(0); }
+            12%, 23% { transform: translateY(-100%); }
+            24%, 35% { transform: translateY(-200%); }
+            36%, 47% { transform: translateY(-300%); }
+            48%, 59% { transform: translateY(-400%); }
+            60%, 71% { transform: translateY(-500%); }
+            72%, 83% { transform: translateY(-600%); }
+            84%, 95% { transform: translateY(-700%); }
+            96%, 100% { transform: translateY(0); } /* Loop back hack */
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            /* Placeholder style if image missing */
+            min-height: 300px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* SVG Placeholder styled as image */
+        .svg-illustration {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+
+        /* --- CONTENT SECTIONS --- */
+        /* Note: We hide sections by default and show active one via JS */
+        section {
+            display: none; /* Hidden by default */
+            padding: 80px 10%;
+            animation: fadeIn 0.5s ease;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .section-title .line {
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Cards Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: #eff6ff;
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .card li::before {
+            content: '\f00c'; /* FontAwesome check */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Boutons */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* FAQ specific */
+        .faq-item {
+            background: var(--light-bg);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover { background: #f1f5f9; }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px; /* Approximate max height */
+            padding: 20px;
+        }
+        
+        .faq-item.open .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        /* Contact Form */
+        .contact-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            text-align: center;
+            padding: 40px 5%;
+            margin-top: auto;
+        }
+
+        .social-links { margin: 20px 0; }
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover { color: var(--primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { grid-template-columns: 1fr; text-align: center; padding-top: 40px;}
+            .hero-image { display: none; } /* Hide heavy image on mobile or move below */
+            .nav-links { display: none; } /* Add JS burger menu logic later if needed, hiding for simplicity in CSS-only */
+            .nav-links.mobile-active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--dark-bg);
+                padding: 20px;
+            }
+            .burger { display: block; }
+            .hero-content h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#" class="nav-logo" onclick="switchTab('accueil')">
+            <i class="fa-solid fa-code"></i> HelloWorld6
+        </a>
+        <div class="burger" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <span class="nav-link active" onclick="switchTab('accueil')">ACCUEIL</span>
+            <span class="nav-link" onclick="switchTab('projets')">NOS PROJETS</span>
+            <span class="nav-link" onclick="switchTab('services')">SERVICES</span>
+            <span class="nav-link" onclick="switchTab('apropos')">À PROPOS</span>
+            <span class="nav-link" onclick="switchTab('faq')">FAQ</span>
+            <span class="nav-link" onclick="switchTab('contact')">CONTACT</span>
+        </div>
+    </nav>
+
+    <!-- BANNIÈRE PRINCIPALE (Toujours visible ou dynamique) -->
+    <header id="mainHeader">
+        <div class="hero-content">
+            <div class="word-carousel">
+                <div id="wordCarousel">
+                    <span>Bonjour !</span>
+                    <span>Hello !</span>
+                    <span>¡Hola !</span>
+                    <span>Ciao !</span>
+                    <span>こんにちは !</span>
+                    <span>안녕하세요 !</span>
+                    <span>Hallo !</span>
+                    <span>Привет !</span>
+                </div>
+            </div>
+            <h1>La Solution Numérique & Innovation Web</h1>
+            <p>HelloWorld6 est une plateforme professionnelle dédiée à la création d'outils numériques, au développement web et à la production de contenus digitaux.</p>
+            <button class="btn" onclick="switchTab('services')">Découvrir nos services</button>
+            <button class="btn btn-outline" onclick="switchTab('contact')" style="margin-left: 10px; border-color: white; color: white;">Nous contacter</button>
+        </div>
+        <div class="hero-image">
+            <!-- SVG Illustration intégrée pour éviter les liens morts -->
+            <svg class="svg-illustration" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="50" y="50" width="400" height="300" rx="20" fill="#1e293b" />
+                <rect x="70" y="70" width="360" height="200" rx="10" fill="#0f172a" />
+                <circle cx="90" cy="310" r="10" fill="#ef4444" />
+                <circle cx="120" cy="310" r="10" fill="#eab308" />
+                <circle cx="150" cy="310" r="10" fill="#22c55e" />
+                <rect x="70" y="90" width="100" height="10" rx="5" fill="#334155" />
+                <rect x="70" y="110" width="150" height="10" rx="5" fill="#334155" />
+                <rect x="250" y="150" width="100" height="80" rx="5" fill="#2563eb" opacity="0.8" />
+                <path d="M300 180 L320 200 L350 160" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+    </header>
+
+    <!-- SECTION: ACCUEIL -->
+    <section id="accueil" class="active">
+        <div class="section-title">
+            <h2>Pourquoi nous choisir ?</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+                <h3>Solutions Modernes</h3>
+                <p>Des outils à la pointe de la technologie pour propulser votre activité.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+                <h3>Équipe Experte</h3>
+                <p>Des passionnés du numérique à votre service pour un accompagnement personnalisé.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Sécurité & Fiabilité</h3>
+                <p>Vos données et vos projets sont sécurisés avec les meilleures pratiques.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 80px; background-color: var(--light-bg); padding: 40px; border-radius: 20px;">
+            <div class="section-title">
+                <h2>Témoignages</h2>
+            </div>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <div style="flex: 1; background: white; padding: 20px; border-radius: 10px; min-width: 250px;">
+                    <p style="font-style: italic;">"HelloWord6 a transformé notre site web en quelques semaines avec un résultat impeccable."</p>
+                    <p style="margin-top: 10px; font-weight: bold; color: var(--primary);">– Client A</p>
+                </div>
+                <div style="flex: 1; background: white; padding: 20px; border-radius: 10px; min-width: 250px;">
+                    <p style="font-style: italic;">"Professionnels, rapides et très pédagogiques, nous recommandons fortement."</p>
+                    <p style="margin-top: 10px; font-weight: bold; color: var(--primary);">– Client B</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: PROJETS -->
+    <section id="projets">
+        <div class="section-title">
+            <h2>Nos Réalisations</h2>
+            <div class="line"></div>
+            <p style="margin-top: 20px;">Découvrez quelques-uns de nos projets phares.</p>
+        </div>
+
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-language"></i></div>
+                <h3>Hello en 6 Langues</h3>
+                <p>Interface interactive sensibilisant à la diversité linguistique.</p>
+                <ul style="margin-top: 15px;">
+                    <li>HTML/CSS/JS</li>
+                    <li>Expérience utilisateur fluide</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
+                <h3>UI Kit Dégradés</h3>
+                <p>Bibliothèque de composants CSS modernes.</p>
+                <ul style="margin-top: 15px;">
+                    <li>Palette moderne</li>
+                    <li>Transitions fluides</li>
+                    <li>Compatibilité cross-browser</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                <h3>Formulaires Sécurisés</h3>
+                <p>Système de collecte de données pour PME.</p>
+                <ul style="margin-top: 15px;">
+                    <li>Validation temps réel</li>
+                    <li>Design Responsive</li>
+                    <li>RGPD Friendly</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
+                <h3>Outils Interactifs</h3>
+                <p>Mini-applications web diverses.</p>
+                <ul style="margin-top: 15px;">
+                    <li>Calculatrice en ligne</li>
+                    <li>Galeries dynamiques</li>
+                    <li>Animations CSS</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: SERVICES -->
+    <section id="services">
+        <div class="section-title">
+            <h2>Nos Services</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="grid-container">
+            <!-- Service 1 -->
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3>Développement Web</h3>
+                <ul>
+                    <li>Sites vitrines & responsive</li>
+                    <li>Démonstrations interactives</li>
+                    <li>Micro-applications</li>
+                    <li>Optimisation SEO</li>
+                </ul>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                <h3>Création Visuelle & Support</h3>
+                <ul>
+                    <li>Optimisation de postes de travail</li>
+                    <li>Formation équipes</li>
+                    <li>Conseils logiciels</li>
+                    <li>Support technique</li>
+                </ul>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                <h3>Pédagogie</h3>
+                <ul>
+                    <li>Tutoriels & Guides PDF</li>
+                    <li>Vulgarisation technique</li>
+                    <li>Articles de fond</li>
+                    <li>Ateliers pratiques</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: A PROPOS -->
+    <section id="apropos">
+        <div class="section-title">
+            <h2>Qui sommes-nous ?</h2>
+            <div class="line"></div>
+        </div>
+
+        <div style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--secondary);">Notre Mission</h3>
+                <p style="margin-bottom: 20px;">Fondé en 2023, HelloWord6 a commencé comme un projet personnel autour de la création web. Aujourd'hui, nous accompagnons entreprises, écoles et créateurs dans leurs projets numériques avec une vision simple : <strong>rendre le numérique accessible à tous.</strong></p>
+                
+                <h3 style="font-size: 1.5rem; margin-bottom: 15px; margin-top: 30px; color: var(--secondary);">Nos Valeurs</h3>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 10px;"></i><strong>Accessibilité</strong> : Simple pour tous.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 10px;"></i><strong>Innovation</strong> : Toujours chercher plus loin.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 10px;"></i><strong>Transparence</strong> : Pas de jargon inutile.</li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 300px; text-align: center;">
+                 <!-- SVG Team Illustration -->
+                 <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%;">
+                    <circle cx="200" cy="150" r="120" fill="#eff6ff" />
+                    <circle cx="200" cy="100" r="40" fill="#2563eb" />
+                    <path d="M140 220 C140 180 260 180 260 220" fill="#1e293b" />
+                    <circle cx="120" cy="140" r="30" fill="#3b82f6" />
+                    <path d="M80 230 C80 200 160 200 160 230" fill="#334155" />
+                    <circle cx="280" cy="140" r="30" fill="#3b82f6" />
+                    <path d="M240 230 C240 200 320 200 320 230" fill="#334155" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: FAQ -->
+    <section id="faq">
+        <div class="section-title">
+            <h2>Foire Aux Questions</h2>
+            <div class="line"></div>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+            <!-- Question 1 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Combien coûte un site vitrine ?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Le prix dépend de la complexité du projet. Nous proposons des forfaits de démarrage très accessibles pour les PME. Contactez-nous pour un devis gratuit !</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Proposez-vous des formations ?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Oui ! Nous proposons des mini-formations pour prendre en main vos outils numériques et comprendre les bases du web.</p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Quels sont vos délais de livraison ?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Pour un site vitrine standard, comptez entre 2 et 4 semaines. Pour des projets plus complexes, nous établirons un planning détaillé ensemble.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CONTACT -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Contactez-nous</h2>
+            <div class="line"></div>
+            <p style="margin-top: 15px;">Une idée ? Un projet ? Écrivez-nous !</p>
+        </div>
+
+        <div class="contact-wrapper">
+            <form onsubmit="event.preventDefault(); alert('Message envoyé ! (Simulation)');">
+                <div class="form-group">
+                    <label>Nom complet</label>
+                    <input type="text" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Sujet</label>
+                    <select style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px;">
+                        <option>Demande de devis</option>
+                        <option>Support technique</option>
+                        <option>Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <p>© 2025 HelloWorld6. Tous droits réservés.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">Design & Développement par l'équipe HelloWorld6</p>
+    </footer>
+
+    <!-- SCRIPT LOGIQUE -->
+    <script>
+        // Gestion des Onglets (Navigation)
+        function switchTab(tabId) {
+            // Cacher toutes les sections
+            document.querySelectorAll('section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            
+            // Désactiver tous les liens nav
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Afficher la section demandée
+            const targetSection = document.getElementById(tabId);
+            if(targetSection) {
+                targetSection.classList.add('active');
+                window.scrollTo(0, 0); // Remonter en haut
+            }
+
+            // Activer le lien correspondant (approximatif pour la démo)
+            // Dans une vraie app, on utiliserait des ID plus stricts ou des datasets
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if(link.getAttribute('onclick').includes(tabId)) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Fermer le menu mobile si ouvert
+            document.getElementById('navLinks').classList.remove('mobile-active');
+        }
+
+        // Menu Mobile Burger
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('mobile-active');
+        }
+
+        // Accordéon FAQ
+        function toggleFaq(element) {
+            const parent = element.parentElement;
+            
+            // Optionnel : fermer les autres
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if(item !== parent) item.classList.remove('open');
+            });
+
+            parent.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
