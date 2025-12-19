@@ -59,4 +59,40 @@
                     <img src = "illustration.webp" alt = "Illustration Accueil">
                 </div>
             </header>
-            
+            <section class="separation_1">
+                <div class="titre_section">
+                    <h2>Contactez-nous</h2>
+                    <div class="ligne"></div>
+                    <p class = "alligment"> Une idée ? Un projet ? Écrivez-nous !</p>
+                </div>
+
+                <div class="contact">
+                    <form onsubmit="event.preventDefault(); alert('Message envoyé ! (Simulation)');">
+                        <div class="form_groupe">
+                            <label>Nom complet</label>
+                            <input type="text" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form_groupe">
+                            <label>Email</label>
+                            <input type="email" placeholder="votre@email.com" required>
+                        </div>
+                        <div class="form_groupe">
+                            <label>Sujet</label>
+                            <select style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px;">
+                                <option>Demande de devis</option>
+                                <option>Support technique</option>
+                                <option>Autre</option>
+                            </select>
+                        </div>
+                        <div class="form_groupe">
+                            <label>Message</label>
+                            <textarea rows="5" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
+                        </div>
+                        <div class="div_bouton">
+                            <button type="submit" class="bouton">Envoyer le message</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+        </body>

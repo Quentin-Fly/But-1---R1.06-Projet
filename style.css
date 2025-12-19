@@ -8,6 +8,11 @@
     scroll-behavior: smooth;
 
 }
+:root {
+    --primary: #3b82f6;
+    --light-bg: #f3f2f6;
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
 body
 {
     font-family: 'Poppins', sans-serif;
@@ -36,6 +41,10 @@ ul li
     margin-left: 40px;
     line-height: 1.6;
 }
+.alligment
+{
+    text-align: center;
+}
 /* Boutons */
 .div_bouton
 {
@@ -45,13 +54,13 @@ ul li
     gap: 30px;
     margin-bottom: 0px;
 }
-.bouton
+.btn, .bouton
 {
     display: inline-block;
     justify-content: center;
     padding: 12px 24px;
-    background-color: #3b82f6;
-    color: #ffffff;
+    background-color: var(--primary);
+    color: white;
     text-decoration: none;
     font-size: 1.1rem;
     border-radius: 20px;
@@ -60,11 +69,21 @@ ul li
     text-align: center;
     
 }
-.bouton:hover 
+.btn:hover, .bouton:hover 
 {
     box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
     transform: translateY(-2px);
     transform : scale(1.1);
+}
+/* Aliases pour classes HTML variées */
+.nav-logo, .nav_logo {
+    color: inherit;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 /* Barre de navigation */
 nav
@@ -81,7 +100,7 @@ nav
     padding-left: 30px;
     padding-right: 30px;
 }
-.nav_logo 
+.nav_logo, .nav-logo
 {
     color: white;
     font-size: 1.5rem;
@@ -97,17 +116,12 @@ nav
     color: #2563eb; 
 }
 
-.nav_links 
+.nav_links, .nav-links, #navLinks
 {
     display: flex;
     gap: 30px;
 }
-.nav_links 
-{
-    display: flex;
-    gap: 30px;
-}
-.nav_link 
+.nav_link, .nav-link
 {
     color: #d9d9d9;
     text-decoration: none;
@@ -117,11 +131,11 @@ nav
     position: relative;
     cursor: pointer;
 }
-.nav_link:hover, .nav_link.active 
+.nav_link:hover, .nav_link.active, .nav-link:hover, .nav-link.active
 {
     color: white;
 }
-.nav_link::after
+.nav_link::after, .nav-link::after
 {
     content: '';
     position: absolute;
@@ -132,7 +146,7 @@ nav
     background-color: #2563eb;
     transition: width 0.3s ease;
 }
-.nav_link:hover::after, .nav_link.active::after 
+.nav_link:hover::after, .nav_link.active::after, .nav-link:hover::after, .nav-link.active::after
 {
     width: 100%;
 }
@@ -498,6 +512,40 @@ nav
 {
     transform: rotate(180deg);
 }
+/* Formulaire de contact */
+.contact 
+{
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+}
+.form_groupe
+{ 
+    margin-bottom: 20px; 
+}
+.form_groupe label 
+{
+    display: block; margin-bottom: 8px; font-weight: 500; 
+}
+.form_groupe input, .form_groupe textarea 
+{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+.form_groupe input:focus, .form_groupe textarea:focus 
+{
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
 /* Footer */
 footer 
 {
@@ -532,4 +580,55 @@ footer p
 .reseau_links a:hover 
 { 
     color: #3b82f6; 
+}
+/* Responsive */
+ @media (max-width: 768px) 
+ {
+    #banniere_accueil 
+    { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+        padding: 40px 20px;
+        height: auto;
+        gap: 20px;
+    }
+    .image_principal
+    {
+        display: none; 
+    }
+    /* nav aliases: gère hyphen/underscore et id */
+    .nav-links, .nav_links, #navLinks
+    {   
+        display: none; 
+    }   
+    .nav-links.mobile-active, .nav_links.mobile-active, #navLinks.mobile-active
+    {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #0f172a;
+        padding: 20px;
+    }
+    .burger 
+    {   
+        display: block; 
+    }
+    .contenu_principal h1 
+    {   
+        font-size: 1.6rem; 
+    }
+    .contenu_principal p
+    {
+        font-size: 1rem;
+        max-width: none;
+    }
+    .carte {
+        padding: 20px;
+    }
+    #texte_accueil {
+        margin-right: 0;
+    }
 }
