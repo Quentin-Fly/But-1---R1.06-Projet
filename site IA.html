@@ -60,7 +60,7 @@
             box-shadow: var(--shadow);
         }
 
-        .nav-logo {
+        .nav_logo {
             color: var(--white);
             font-size: 1.5rem;
             font-weight: 700;
@@ -70,14 +70,14 @@
             gap: 10px;
         }
 
-        .nav-logo i { color: var(--primary); }
+        .nav_logo i { color: var(--primary); }
 
-        .nav-links {
+        .nav_links {
             display: flex;
             gap: 30px;
         }
 
-        .nav-link {
+        .nav_link {
             color: var(--text-light);
             text-decoration: none;
             font-weight: 500;
@@ -87,11 +87,11 @@
             cursor: pointer;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav_link:hover, .nav_link.active {
             color: var(--white);
         }
 
-        .nav-link::after {
+        .nav_link::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -102,7 +102,7 @@
             transition: width 0.3s ease;
         }
 
-        .nav-link:hover::after, .nav-link.active::after {
+        .nav_link:hover::after, .nav_link.active::after {
             width: 100%;
         }
 
@@ -440,9 +440,9 @@
 
     <!-- BANNIÈRE PRINCIPALE (Toujours visible ou dynamique) -->
     <header id="mainHeader">
-        <div class="hero-content">
-            <div class="word-carousel">
-                <div id="wordCarousel">
+        <div class="contenu_principal">
+            <div class="carousel_bonjour">
+                <div id="carousel_bonjour">
                     <span>Bonjour !</span>
                     <span>Hello !</span>
                     <span>¡Hola !</span>

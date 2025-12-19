@@ -1,91 +1,115 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <title>HelloWorld6 - Accueil</title>
+            <title>HelloWorld6 - Solutions Numériques</title>
             <link rel="stylesheet" href="style.css">
             <meta charset="utf-8"/>
-            <!-- Importations des polices Google Fonts -->
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <!-- Polices -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+        <!-- Icônes -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
         </head>
         <body>
-            <header>
-                <div id="barre_navigation">
-                    <a class="nav_link" href="accueil.html">ACCEUIL</a>
-                    <a class="nav_link" href="projet.html">NOS PROJETS & RÉALISATION</a>
-                    <a class="nav_link" href="a_propos.html">À PROPOS</a>
+            <!-- Barre de navigation -->
+            <nav>
+                <a href="#" class="nav_logo" href="accueil.html">
+                    <i class="fa-solid fa-code"></i> HelloWorld6 
+                </a>
+                <div class="burger" onclick="toggleMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="nav_links" id="navLinks">
+                    <a class="nav_link" href="accueil.html">ACCUEIL</a>
+                    <a class="nav_link" href="projet.html">NOS PROJETS</a>
                     <a class="nav_link" href="service.html">SERVICES</a>
-                    <a class="nav_link" href="FAQ">FAQ</a>
-                    <a class="nav_link" href="conctact.html">CONCTACT</a>
+                    <a class="nav_link" href="a_propos.html">À PROPOS</a>
+                    <a class="nav_link" href="faq.html">FAQ</a>
+                    <a class="nav_link" href="contact.html">CONTACT</a>
                 </div>
-                <div id="banniere_accueil">
-                    <span class="bonjour"> Bonjour !</span>
-                    <span class="bonjour"> Hello !</span>
-                    <span class="bonjour"> ¡Hola !</span>
-                    <span class="bonjour"> Ciao !</span>
-                    <span class="bonjour"> こんにちは !</span>
-                    <span class="bonjour"> 안녕하세요 !</span>
-                    <span class="bonjour"> Hallo !</span>
-                    <span class="bonjour"> Hallo !</span>
-                    <span class="bonjour"> Привет !</span>
+            </nav>
+            <!-- Bannière principale -->
+            <header id="banniere_accueil">
+                <div class="contenu_principal">
+                    <div class="carousel_bonjour">
+                        <div id="carousel_bonjour">
+                            <span> Bonjour !</span>
+                            <span> Hello !</span>
+                            <span> ¡Hola !</span>
+                            <span> Ciao !</span>
+                            <span> こんにちは !</span>
+                            <span> 안녕하세요 !</span>
+                            <span> Hallo !</span>
+                            <span> Hallo !</span>
+                            <span> Привет !</span>
+                        </div>
+                    </div>
+                    <h1>La Solution Numérique & Innovation Web</h1>
+                    <p>HelloWorld6 est une plateforme professionnelle dédiée à la création d'outils numériques, 
+                au développement web et à la production de contenus digitaux.</p>
+                    <div class = "div_bouton">
+                        <a class = "bouton" href="service.html">Découvrez nos services</a>
+                        <a class = "bouton" href="contact.html">Nous contacter</a>
+                    </div>
                 </div>
-                <img src = "illustration.png" alt = "Illustration Accueil" id="Image_accueil">
+                <div class="image_principal">
+                    <img src = "illustration.png" alt = "Illustration Accueil">
+                </div>
             </header>
-            <section class="separation_1">
-                <div>
-                    <h1>Bienvenue sur HelloWorld6<br>La Solution numérique & de l'innovation Web</h1>
-                    <p id="texte_accueil">HelloWorld6 est une plateforme professionnelle dédiée à la création d'outils numériques, 
-                        au développement web et à la production de contenus digitaux.</p>
-                    <p>Notre objectif est de proposer des solutions claires, fiables et accessibles à tous.</p>
+            <!-- Contenu principal -->
+             <section class="separation_1">
+                <div class="section-title">
+                    <h2>Pourquoi nous choisir ?</h2>
+                    <div class="line"></div>
                 </div>
-                <div class = "div_bouton">
-                    <a class = "bouton" href="service.html">Découvrez nos services</a>
-                </div>
-            </section>
-            <section class="separation_2">
-                <div>
-                    <h2>Nos domaines d'expertise</h2>
-                    <ul>
-                        <li>Développement de sites web sur mesure</li>
-                        <li>Création de contenus visuels</li>
-                        <li>Conception de démonstrations techniques</li>
-                        <li>Accompagnement numérique</li>
-                    </ul>
-                </div>
-            </section>
-            <section class="separation_1">
-                <div>
-                    <h2>Pourquoi choisir HelloWorld6 ?</h2>
-                    <ul>
-                        <li>Des solutions adaptées à vos besoins</li>
-                        <li>Une équipe d'experts passionnés par le numérique</li>
-                        <li>Des outils modernes et sécurisés</li>
-                        <li>Une assistance personnalisée pour vos projets</li>
-                    </ul>
-                </div>
-            </section>
-            <section class="separation_2">
-                <div>
-                    <h2>Exemple concret :</h2>
-                    <p>Nous avons récemment réalisé un site vitrine pour une PME locale, intégrant formulaire de contact, blog et galerie interactive. Résultat : +45% de visiteurs engagés sur le site.</p>
-                </div>
-            </section>
-            <section class="separation_1">
-                <div>
-                    <h2>Témoignages clients :</h2>
-                    <p>HelloWord6 a transformé notre site web en quelques semaines avec un résultat impeccable." – Client A </p>
-                    <p>"Professionnels, rapides et très pédagogiques, nous recommandons fortement." – Client B</p>
-                </div>
-                <div class = "div_bouton">
-                    <a class = "bouton" href="service.html">Nous conctacter</a>
-                </div>
-            </section>
 
-            <script src="anim_baniere.js"></script>
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+                        <h3>Solutions Modernes</h3>
+                        <p>Des outils à la pointe de la technologie pour propulser votre activité.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+                        <h3>Équipe Experte</h3>
+                        <p>Des passionnés du numérique à votre service pour un accompagnement personnalisé.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3>Sécurité & Fiabilité</h3>
+                        <p>Vos données et vos projets sont sécurisés avec les meilleures pratiques.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="separation_2">
+                <div style="margin-top: 80px; background-color: var(--light-bg); padding: 40px; border-radius: 20px;">
+                    <div class="section-title">
+                        <h2>Témoignages</h2>
+                    </div>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <div style="flex: 1; background: white; padding: 20px; border-radius: 10px; min-width: 250px;">
+                            <p style="font-style: italic;">"HelloWord6 a transformé notre site web en quelques semaines avec un résultat impeccable."</p>
+                            <p style="margin-top: 10px; font-weight: bold; color: var(--primary);">– Client A</p>
+                        </div>
+                        <div style="flex: 1; background: white; padding: 20px; border-radius: 10px; min-width: 250px;">
+                            <p style="font-style: italic;">"Professionnels, rapides et très pédagogiques, nous recommandons fortement."</p>
+                            <p style="margin-top: 10px; font-weight: bold; color: var(--primary);">– Client B</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <script src="function.js"></script>
             <footer>
-                <p>© 2025 HelloWorld6. Tous droits réservés.</p>
+                <div class="reseau_links">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <p>© 2025 HelloWorld6. Tous droits réservés.<br>Design & Développement par l'équipe HelloWorld6</p>
             </footer>
         </body>
     </html>
