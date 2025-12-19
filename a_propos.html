@@ -1,76 +1,98 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <title>HelloWorld6 - Projets</title>
+            <title>HelloWorld6 - Solutions Numériques</title>
             <link rel="stylesheet" href="style.css">
             <meta charset="utf-8"/>
-            <!-- Importations des polices Google Fonts -->
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <!-- Polices -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+        <!-- Icônes -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
         </head>
         <body>
-            <header>
-                <div id="barre_navigation">
-                    <a class="nav_link" href="accueil.html">ACCEUIL</a>
-                    <a class="nav_link" href="projet.html">NOS PROJETS & RÉALISATION</a>
-                    <a class="nav_link" href="a_propos.html">À PROPOS</a>
+            <!-- Barre de navigation -->
+            <nav>
+                <a href="#" class="nav_logo" href="accueil.html">
+                    <i class="fa-solid fa-code"></i> HelloWorld6 
+                </a>
+                <div class="burger" onclick="toggleMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="nav_links" id="navLinks">
+                    <a class="nav_link" href="accueil.html">ACCUEIL</a>
+                    <a class="nav_link" href="projet.html">NOS PROJETS</a>
                     <a class="nav_link" href="service.html">SERVICES</a>
-                    <a class="nav_link" href="FAQ">FAQ</a>
-                    <a class="nav_link" href="conctact.html">CONCTACT</a>
+                    <a class="nav_link" href="a_propos.html">À PROPOS</a>
+                    <a class="nav_link" href="faq.html">FAQ</a>
+                    <a class="nav_link" href="contact.html">CONTACT</a>
                 </div>
-                <div id="banniere_accueil">
-                    <span class="bonjour"> Bonjour !</span>
-                    <span class="bonjour"> Hello !</span>
-                    <span class="bonjour"> ¡Hola !</span>
-                    <span class="bonjour"> Ciao !</span>
-                    <span class="bonjour"> こんにちは !</span>
-                    <span class="bonjour"> 안녕하세요 !</span>
-                    <span class="bonjour"> Hallo !</span>
-                    <span class="bonjour"> Hallo !</span>
-                    <span class="bonjour"> Привет !</span>
+            </nav>
+            <!-- Bannière principale -->
+            <header id="banniere_accueil">
+                <div class="contenu_principal">
+                    <div class="carousel_bonjour">
+                        <div id="carousel_bonjour">
+                            <span> Bonjour !</span>
+                            <span> Hello !</span>
+                            <span> ¡Hola !</span>
+                            <span> Ciao !</span>
+                            <span> こんにちは !</span>
+                            <span> 안녕하세요 !</span>
+                            <span> Hallo !</span>
+                            <span> Hallo !</span>
+                            <span> Привет !</span>
+                        </div>
+                    </div>
+                    <h1>La Solution Numérique & Innovation Web</h1>
+                    <p>HelloWorld6 est une plateforme professionnelle dédiée à la création d'outils numériques, 
+                au développement web et à la production de contenus digitaux.</p>
+                    <div class = "div_bouton">
+                        <a class = "bouton" href="service.html">Découvrez nos services</a>
+                        <a class = "bouton" href="contact.html">Nous contacter</a>
+                    </div>
                 </div>
-                <img src = "illustration.png" alt = "Illustration Accueil" id="Image_accueil">
+                <div class="image_principal">
+                    <img src = "illustration.webp" alt = "Illustration Accueil">
+                </div>
             </header>
             <section class="separation_1">
-                <div>
-                    <h1>Notre mission : rendre le numérique accessible à tous</h1>
-                    <p>Fondé en 2023, HelloWord6 a commencé comme un projet personnel autour de la création web et des contenus pédagogiques. 
-                        Aujourd'hui, nous accompagnons entreprises, écoles et créateurs dans leurs projets numériques.</p>
+                <div class="titre_section">
+                    <h2>Qui sommes-nous ?</h2>
+                    <div class="ligne"></div>
+                </div>
+
+                <div id = "a_propos">
+                    <div id="contenu_a_propos">
+                        <h3>Notre Mission</h3>
+                        <p>Fondé en 2023, HelloWord6 a commencé comme un projet personnel autour de la création web. Aujourd'hui, nous accompagnons entreprises, écoles et créateurs dans leurs projets numériques avec une vision simple : <strong>rendre le numérique accessible à tous.</strong></p>
+
+                        <h3>Nos Valeurs</h3>
+                        <ul >
+                            <li><i class="fa-solid fa-check"></i><strong>Accessibilité</strong> : Simple pour tous.</li>
+                            <li><i class="fa-solid fa-check"></i><strong>Innovation</strong> : Toujours chercher plus loin.</li>
+                            <li><i class="fa-solid fa-check"></i><strong>Transparence</strong> : Pas de jargon inutile.</li>
+                        </ul>
+                    </div>
+                    <div id="illustration_a_propos">
+                        <img src="illustration_personne.webp" alt="Illustration À Propos">
+                    </div>
                 </div>
             </section>
-            <section class="separation_2">
-                <div>
-                    <h2>Nos valeurs :</h2>
-                    <ul>
-                        <li><strong>Accessibilité</strong> : rendre les concepts numériques abordables pour tous.</li>
-                        <li><strong>Innovation</strong> : toujours à la recherche de nouvelles idées et technologies.</li>
-                        <li><strong>Collaboration</strong> : travailler main dans la main avec nos clients et partenaires.</li>
-                        <li><strong>Fiabilité</strong> : garantir la qualité et la stabilité de nos services.</li>
-                        <li><strong>Modernité</strong> : rester à la pointe des tendances et des technologies.</li>
-                        <li><strong>Clarté</strong> : communiquer de manière transparente et compréhensible.</li>
-                    </ul>
-                </div>
-            </section>
-            <section class="separation_1">
-                <div>
-                    <h2>Notre approche :</h2>
-                    <ul>
-                        <li>Accompagner nos clients dans leurs projets numériques</li>
-                        <li>Proposer des solutions innovantes et accessibles</li>
-                        <li>Collaborer étroitement avec nos partenaires</li>
-                    </ul>
-                </div>
-            </section>
-            <section class="separation_2">
-                <div>
-                    <h2>Rencontrez notre équipe :</h2>
-                    <p>Notre équipe est composée de passionnés du numérique, chacun apportant son expertise unique pour créer des solutions complètes et efficaces.</p>
-                    <!-- Ajouter des photos et descriptions des membres de l'équipe ici -->
-                </div>
-            </section>
-            <script src="anim_baniere.js"></script>
+            <script src="function.js"></script>
             <footer>
+                <div class="reseau_links">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
                 <p>© 2025 HelloWorld6. Tous droits réservés.</p>
+                <p>Design & Développement par l'équipe HelloWorld6</p>
             </footer>
+        </body>
+    </html>
+    

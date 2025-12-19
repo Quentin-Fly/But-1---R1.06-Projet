@@ -36,6 +36,7 @@ ul li
     margin-left: 40px;
     line-height: 1.6;
 }
+/* Boutons */
 .div_bouton
 {
     display: flex;
@@ -272,49 +273,6 @@ nav
     background-color: #ffffff;
     list-style-image: url("pastille 01.png");
 }
-.separation_1 ul, .separation_2 ul
-{
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
-.separation_1 li, .separation_2 li
-{
-    position: relative;
-    padding-left: 40px; 
-    margin-bottom: 15px; 
-}
-.separation_1 li:hover, .separation_2 li:hover
-{
-    animation: slideIn 0.5s ease forwards;
-}
-.separation_1 li::before 
-{
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;  
-    height: 30px;
-    background-image: url("pastille 02.png");
-    background-size: contain;  
-    background-repeat: no-repeat;
-}
-.separation_2 li::before 
-{
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;  
-    height: 30px;
-    background-image: url("pastille 01.png");
-    background-size: contain;  
-    background-repeat: no-repeat;
-}
-
 /* Animation liste */
 @keyframes slideIn 
 {
@@ -341,15 +299,21 @@ nav
     color: #1e293b;
     margin-bottom: 15px;
 }
-.titre_section .ligne {
+.titre_section .ligne 
+{
     width: 80px;
     height: 4px;   
     background: #3b82f6;
     margin: 0 auto;
     border-radius: 2px;
 }
+.titre_section p
+{
+    margin-left: 40px;
+    margin-top: 50px;
+}
 /* Conteneur et cartes*/
-.contenaire
+.contenaire_carte
 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -445,6 +409,95 @@ nav
     color: #2563eb;
     margin-bottom: 5px;
 }
+/* Contenue A Propos */
+#a_propos
+{
+    display: flex;
+    gap: 40px; 
+    align-items: center; 
+    flex-wrap: wrap;
+    margin-left: 40px;
+}
+#contenu_a_propos
+{
+    flex: 1; 
+    min-width: 300px;
+}
+#contenu_a_propos h3
+{
+    font-size: 1.5rem; 
+    margin-bottom: 20px; 
+    color: #1e293b;
+    margin-top: 20px;
+}
+#contenu_a_propos ul
+{
+    list-style: none;
+}
+#contenu_a_propos ul li
+{
+    margin-bottom: 10px; 
+    color: #1e293b;
+}
+#illustration_a_propos
+{
+    flex: 1; 
+    min-width: 300px; 
+    text-align: center;
+}
+#illustration_a_propos img
+{
+    max-width: 100%;
+    height: auto; 
+    border-radius: 10px;
+}
+ /* FAQ */
+.faq-item 
+{
+    background: var(--light-bg);
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.faq-question 
+{
+    padding: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+}
+.faq-question:hover 
+{ 
+    background: #f1f5f9; 
+}
+.faq-answer 
+{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 20px;
+    background: white;
+    border-top: 1px solid #e2e8f0;
+}
+.faq-answer p
+{
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.faq-item.open .faq-answer 
+{
+    max-height: 200px;
+    padding: 20px;
+}
+.faq-item.open .fa-chevron-down 
+{
+    transform: rotate(180deg);
+}
 /* Footer */
 footer 
 {
@@ -458,8 +511,10 @@ footer
 footer p 
 {
     font-size: 0.8rem; 
-    margin-top: 10px; 
+     
     opacity: 0.6;
+    text-align: center;
+
 }
 .reseau_links
 { 

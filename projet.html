@@ -1,79 +1,126 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <title>HelloWorld6 - Projets</title>
+            <title>HelloWorld6 - Solutions Numériques</title>
             <link rel="stylesheet" href="style.css">
             <meta charset="utf-8"/>
-            <!-- Importations des polices Google Fonts -->
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <!-- Polices -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+        <!-- Icônes -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
         </head>
         <body>
-            <header>
-                <div id="barre_navigation">
-                    <a class="nav_link" href="accueil.html">ACCEUIL</a>
-                    <a class="nav_link" href="projet.html">NOS PROJETS & RÉALISATION</a>
-                    <a class="nav_link" href="a_propos.html">À PROPOS</a>
+            <!-- Barre de navigation -->
+            <nav>
+                <a href="#" class="nav_logo" href="accueil.html">
+                    <i class="fa-solid fa-code"></i> HelloWorld6 
+                </a>
+                <div class="burger" onclick="toggleMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="nav_links" id="navLinks">
+                    <a class="nav_link" href="accueil.html">ACCUEIL</a>
+                    <a class="nav_link" href="projet.html">NOS PROJETS</a>
                     <a class="nav_link" href="service.html">SERVICES</a>
-                    <a class="nav_link" href="FAQ">FAQ</a>
-                    <a class="nav_link" href="conctact.html">CONCTACT</a>
+                    <a class="nav_link" href="a_propos.html">À PROPOS</a>
+                    <a class="nav_link" href="faq.html">FAQ</a>
+                    <a class="nav_link" href="contact.html">CONTACT</a>
                 </div>
-                <div id="banniere_accueil">
-                    <span class="bonjour"> Bonjour !</span>
-                    <span class="bonjour"> Hello !</span>
-                    <span class="bonjour"> ¡Hola !</span>
-                    <span class="bonjour"> Ciao !</span>
-                    <span class="bonjour"> こんにちは !</span>
-                    <span class="bonjour"> 안녕하세요 !</span>
-                    <span class="bonjour"> Hallo !</span>
-                    <span class="bonjour"> Hallo !</span>
-                    <span class="bonjour"> Привет !</span>
+            </nav>
+            <!-- Bannière principale -->
+            <header id="banniere_accueil">
+                <div class="contenu_principal">
+                    <div class="carousel_bonjour">
+                        <div id="carousel_bonjour">
+                            <span> Bonjour !</span>
+                            <span> Hello !</span>
+                            <span> ¡Hola !</span>
+                            <span> Ciao !</span>
+                            <span> こんにちは !</span>
+                            <span> 안녕하세요 !</span>
+                            <span> Hallo !</span>
+                            <span> Hallo !</span>
+                            <span> Привет !</span>
+                        </div>
+                    </div>
+                    <h1>La Solution Numérique & Innovation Web</h1>
+                    <p>HelloWorld6 est une plateforme professionnelle dédiée à la création d'outils numériques, 
+                au développement web et à la production de contenus digitaux.</p>
+                    <div class = "div_bouton">
+                        <a class = "bouton" href="service.html">Découvrez nos services</a>
+                        <a class = "bouton" href="contact.html">Nous contacter</a>
+                    </div>
                 </div>
-                <img src = "illustration.png" alt = "Illustration Accueil" id="Image_accueil">
+                <div class="image_principal">
+                    <img src = "illustration.webp" alt = "Illustration Accueil">
+                </div>
             </header>
+            
             <section class="separation_1">
-                <div>
-                    <h1>Projets phare</h1>
-                    <h2>Interface multilangue "Hello en 6 lanques"</h2>
-                    <ul>
-                        <li>Projet de création d'une interface web interactive affichant des salutations dans six langues différentes.</li>
-                        <li>Technologies utilisées : HTML, CSS, JavaScript.</li>
-                        <li>Objectif : Sensibiliser à la diversité linguistique et culturelle à travers une expérience utilisateur engageante.</li>
-                    </ul>
+                <div class="titre_section">
+                    <h2>Pourquoi nous choisir ?</h2>
+                    <div class="ligne"></div>
+                    <p>Découvrez quelques-uns de nos projets phares.</p>
+                </div>
+                <div class="contenaire_carte">
+                    <div class="carte">
+                        <div class="carte-icon"><i class="fa-solid fa-language"></i></div>
+                        <h3>Hello en 6 Langues</h3>
+                        <p>Interface interactive sensibilisant à la diversité linguistique.</p>
+                        <ul style="margin-top: 15px;">
+                            <li>HTML/CSS/JS</li>
+                            <li>Expérience utilisateur fluide</li>
+                        </ul>
+                    </div>
+
+                    <div class="carte">
+                        <div class="carte-icon"><i class="fa-solid fa-palette"></i></div>
+                        <h3>UI Kit Dégradés</h3>
+                        <p>Bibliothèque de composants CSS modernes.</p>
+                        <ul style="margin-top: 15px;">
+                            <li>Palette moderne</li>
+                            <li>Transitions fluides</li>
+                            <li>Compatibilité cross-browser</li>
+                        </ul>
+                    </div>
+
+                    <div class="carte">
+                        <div class="carte-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                        <h3>Formulaires Sécurisés</h3>
+                        <p>Système de collecte de données pour PME.</p>
+                        <ul style="margin-top: 15px;">
+                            <li>Validation temps réel</li>
+                            <li>Design Responsive</li>
+                            <li>RGPD Friendly</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="carte">
+                        <div class="carte-icon"><i class="fa-solid fa-calculator"></i></div>
+                        <h3>Outils Interactifs</h3>
+                        <p>Mini-applications web diverses.</p>
+                        <ul style="margin-top: 15px;">
+                            <li>Calculatrice en ligne</li>
+                            <li>Galeries dynamiques</li>
+                            <li>Animations CSS</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
-            <section class="separation_2">
-                <div>
-                    <h2>Degradés CSS personnalisés :</h2>
-                    <ul>
-                        <li>Palette de couleurs modernes, transitions fluides</li>
-                        <li>Compatibilité multi-navigateurs</li>
-                        <li>Exemple d'application sur boutons et arrière-plan</li>
-                    </ul>
-            </section>
-            <section class="separation_1">
-                <div>
-                    <h2>Formulaire web professionnel:</h2>
-                    <ul>
-                        <li>Collecte de données sécurisée (nom, prénom, email)</li>
-                        <li>Validation en temps réel et messages d'erreur personnalisés</li>
-                        <li>Design responsive et convivial</li>
-                    </ul>
-                </div>
-            </section>
-            <section class="separation_2">
-                <div>
-                    <h2>Mini-projets interactifs :</h2>
-                    <ul>
-                        <li>Simulateur de calculatrice en ligne</li>
-                        <li>Galerie d'image responsive</li>
-                        <li>Animation CSS "hover" pour boutons et cartes</li>
-                    </ul>
-                </div>
-            </section>
+            
             <script src="anim_baniere.js"></script>
             <footer>
+                <div class="reseau_links">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
                 <p>© 2025 HelloWorld6. Tous droits réservés.</p>
+                <p>Design & Développement par l'équipe HelloWorld6</p>
             </footer>
+            <script src="function.js"></script>
