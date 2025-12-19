@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <title>HelloWorld6 - Solutions Numériques</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="QCL - style.css">
         <meta charset="utf-8"/>
         <!-- Polices -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,25 +10,23 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
         <!-- Icônes -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-
         </head>
         <body>
             <!-- Barre de navigation -->
             <nav>
-                <a class="nav_logo" href="accueil.html">
+                <a href="accueil.html" class="nav_logo">
                     <i class="fa-solid fa-code"></i> HelloWorld6 
                 </a>
                 <div class="burger" onclick="toggleMenu()">
                     <i class="fa-solid fa-bars"></i>
                 </div>
                 <div class="nav_links" id="navLinks">
-                    <a class="nav_link" href="accueil.html">ACCUEIL</a>
-                    <a class="nav_link" href="projet.html">NOS PROJETS</a>
-                    <a class="nav_link" href="service.html">SERVICES</a>
-                    <a class="nav_link" href="a_propos.html">À PROPOS</a>
-                    <a class="nav_link" href="faq.html">FAQ</a>
-                    <a class="nav_link" href="contact.html">CONTACT</a>
+                    <a class="nav_link" href="QCL - accueil.html">ACCUEIL</a>
+                    <a class="nav_link" href="QCL - projet.html">NOS PROJETS</a>
+                    <a class="nav_link" href="QCL - service.html">SERVICES</a>
+                    <a class="nav_link" href="QCL - a_propos.html">À PROPOS</a>
+                    <a class="nav_link" href="QCL - faq.html">FAQ</a>
+                    <a class="nav_link" href="QCL - contact.html">CONTACT</a>
                 </div>
             </nav>
             <!-- Bannière principale -->
@@ -61,38 +59,38 @@
             </header>
             <section class="separation_1">
                 <div class="titre_section">
-                    <h2>Contactez-nous</h2>
+                    <h2>Qui sommes-nous ?</h2>
                     <div class="ligne"></div>
-                    <p class = "alligment"> Une idée ? Un projet ? Écrivez-nous !</p>
                 </div>
 
-                <div class="contact">
-                    <form onsubmit="event.preventDefault(); alert('Message envoyé ! (Simulation)');">
-                        <div class="form_groupe">
-                            <label>Nom complet</label>
-                            <input type="text" placeholder="Votre nom" required>
-                        </div>
-                        <div class="form_groupe">
-                            <label>Email</label>
-                            <input type="email" placeholder="votre@email.com" required>
-                        </div>
-                        <div class="form_groupe">
-                            <label>Sujet</label>
-                            <select style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px;">
-                                <option>Demande de devis</option>
-                                <option>Support technique</option>
-                                <option>Autre</option>
-                            </select>
-                        </div>
-                        <div class="form_groupe">
-                            <label>Message</label>
-                            <textarea rows="5" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
-                        </div>
-                        <div class="div_bouton">
-                            <button type="submit" class="bouton">Envoyer le message</button>
-                        </div>
-                    </form>
+                <div id = "a_propos">
+                    <div id="contenu_a_propos">
+                        <h3>Notre Mission</h3>
+                        <p>Fondé en 2023, HelloWord6 a commencé comme un projet personnel autour de la création web. Aujourd'hui, nous accompagnons entreprises, écoles et créateurs dans leurs projets numériques avec une vision simple : <strong>rendre le numérique accessible à tous.</strong></p>
+
+                        <h3>Nos Valeurs</h3>
+                        <ul >
+                            <li><i class="fa-solid fa-check"></i><strong>Accessibilité</strong> : Simple pour tous.</li>
+                            <li><i class="fa-solid fa-check"></i><strong>Innovation</strong> : Toujours chercher plus loin.</li>
+                            <li><i class="fa-solid fa-check"></i><strong>Transparence</strong> : Pas de jargon inutile.</li>
+                        </ul>
+                    </div>
+                    <div id="illustration_a_propos">
+                        <img src="illustration_personne.webp" alt="Illustration À Propos">
+                    </div>
                 </div>
             </section>
-
+            <script src="function.js"></script>
+            <footer>
+                <div class="reseau_links">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <p>© 2025 HelloWorld6. Tous droits réservés.</p>
+                <p>Design & Développement par l'équipe HelloWorld6</p>
+            </footer>
         </body>
+    </html>
+    
